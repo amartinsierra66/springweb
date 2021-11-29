@@ -20,8 +20,12 @@ public class Cliente {
         this.email = email;
         this.telefono = telefono;
     }
+    
+    public Cliente() {
+		super();
+	}
 
-    public int getIdCliente() {
+	public int getIdCliente() {
         return idCliente;
     }
 

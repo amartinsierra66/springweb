@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import model.Cliente;
@@ -30,13 +31,9 @@ public class ClienteController {
 		}
 	}
 	@PostMapping(value="doRegistrar")
-	public String registrar(HttpServletRequest request) {
-		Cliente cliente=new Cliente(0,request.getParameter("usuario"),
-				request.getParameter("password"),
-				request.getParameter("email"),
-				Integer.parseInt(request.getParameter("telefono")));
+	public String registrar(@ModelAttribute("cliente") Cliente cliente) {
 		if(clientesService.registrarCliente(cliente)) {
-			return "inicio";
+			return "login";
 		}else {
 			return "error";
 		}

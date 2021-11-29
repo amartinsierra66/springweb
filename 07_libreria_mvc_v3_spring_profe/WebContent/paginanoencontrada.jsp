@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +6,10 @@
 </head>
 <body>
 	<center>
-		<h1>Lo siento, el usuario no está registrado</h1>
-		<br/>
-		<a href="Controller?option=toSalir">Volver</a>
+		<h1>La dirección solicitada no existe</h1>
+		
+		<br><br>
+		<a href="toSalir">Salir</a>
 	</center>
 </body>
 </html>

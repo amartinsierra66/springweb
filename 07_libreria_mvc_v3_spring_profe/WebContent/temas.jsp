@@ -16,18 +16,18 @@
 
 	function lanzarPeticion(){		
 		
-		$.get("Controller",{"option":"doLibros","idTema":$("#idTema").val()},function(data,status){
+		$.get("doLibros",{"idTema":$("#idTema").val()},function(data,status){
 			procesarRespuesta(data);
 		});
 		
 	}
 	function guardarCarrito(isbn){
-		$.get("Controller",{"option":"doAgregarCarrito","isbn":isbn},function(data,status){
+		$.get("doAgregarCarrito",{"isbn":isbn},function(data,status){
 			procesarCarrito(data);
 		});
 	}
 	function eliminarCarrito(pos){
-		$.get("Controller",{"option":"doEliminarCarrito","pos":pos},function(data,status){
+		$.get("doEliminarCarrito",{"pos":pos},function(data,status){
 			procesarCarrito(data);
 		});
 	}
@@ -98,7 +98,7 @@
 		
 	<br><br>
 	<br><br>
-			<a href="Controller?option=doProcesarCompra">Procesar compra</a>
+			<a href="doProcesarCompra">Procesar compra</a>
 		<br/><br/>
 	
 	</center>

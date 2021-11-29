@@ -13,9 +13,7 @@ import model.Libro;
  *
  */
 @WebListener
-public class CarritoListener implements HttpSessionListener {
-
-    
+public class CarritoListener implements HttpSessionListener { 
     public void sessionCreated(HttpSessionEvent se)  { 
          se.getSession().setAttribute("carrito", new ArrayList<Libro>());
     }

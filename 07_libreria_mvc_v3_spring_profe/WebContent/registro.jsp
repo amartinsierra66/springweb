@@ -57,7 +57,7 @@
 <body>
 <div class="container">
 	<h1>Alta de contacto</h1>
-	<form action="Controller?option=doRegistrar" method="post" onsubmit="return validar()">
+	<form action="doRegistrar" method="post" onsubmit="return validar()">
 		<div class="form-group">
 			<label>Usuario:</label><input type="text" name="usuario" id="usuario" class="form-control" onblur="validarUsuario();" style="width:30%" placeholder="Usuario" />
 		</div>

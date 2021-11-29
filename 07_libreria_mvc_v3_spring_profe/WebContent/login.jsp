@@ -14,7 +14,7 @@
 <body>
 	<div class="container">
 	<h1>Página de autenticación</h1>
-		<form action="Controller?option=doLogin" method="post">		
+		<form action="doLogin" method="post">		
 			
 			<div class="form-group">
 				<label>Usuario:</label><input type="text" name="user" class="form-control" style="width:30%" placeholder="user"/>
@@ -25,7 +25,7 @@
 			<button type="submit" class="btn btn-default">Entrar</button>
 		</form>
 		<br/>
-		<a href="Controller?option=toRegistro">Registrese</a>
+		<a href="toRegistro">Registrese</a>
 	</div>
 
 </body>

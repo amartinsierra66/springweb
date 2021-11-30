@@ -4,8 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import service.PaisesService;
 
@@ -13,7 +13,7 @@ import service.PaisesService;
 public class PaisesController {
 	@Autowired
 	PaisesService service;
-	@GetMapping(value="/")
+	@RequestMapping(value="/") //para que se ejecute por get y por post
 	public String continentes(HttpServletRequest request) {
 		request.setAttribute("continentes", service.continentes());
 		return "paises";

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+    var ws;
+    function conectar(){
+        document.getElementById("res").style.visibility="visible";
+        var dir="ws://localhost:8080/13_contador_sesiones_websocket_profe/sesiones";
+        ws=new WebSocket(dir);
+        ws.onmessage=function(evt){
+            document.getElementById("res").innerHTML="<b>Sesiones activas: "+evt.data+"</b>";
+        }
+    }
+    function desconectar(){
+        ws.close();
+        document.getElementById("res").style.visibility="hidden";
+    }
+
+</script>
+
+</head>
+<body>
+    <center>
+        <input type="button" value="conectar" onclick="conectar();">
+        <input type="button" value="desconectar" onclick="desconectar();">
+        <br><br>
+        <div id="res">
+
+        </div>
+
+
+    </center>
+</body>
+</html>

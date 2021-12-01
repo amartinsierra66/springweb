@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+    
+    var ws;
+    function conectar(){
+        var url="ws://localhost:8080/12_ejemplo_websocket/saludar";
+        ws=new WebSocket(url);
+        ws.onmessage=function(evt){
+            document.getElementById("respuesta").innerHTML="<b>"+evt.data+"</b>";
+        }
+    }
+    function desconectar(){
+        ws.close();
+    }
+    function enviar(){
+        //el método send sirve para enviar datos por el websocket
+        ws.send(document.getElementById("texto").value);
+    }
+
+</script>
+</head>
+<body>
+    <center>
+        <input type="button" value="Conectar" onclick="conectar();"><input type="button" value="Desconectar" onclick="desconectar();"><br><br>
+        Introduce nombre: <input type="text" id="texto"><br><br>
+        <input type="button" onclick="enviar();" value="Enviar"><br>
+        <div id="respuesta">
+
+
+        </div>
+
+    </center>
+</body>
+</html>

@@ -24,22 +24,19 @@ public class ServidorChat {
 	@OnClose
 	public void close(Session sesion) {
 		SingletonSesiones singleton=SingletonSesiones.getInstance();
-		singleton.eliminarSesion(sesion);
-		
+		singleton.eliminarSesion(sesion);		
 	}
 	
 	@OnMessage
 	public void recepcion(String message) {
-		Mensaje mensaje=Utilidades.convertirJsonAMensaje(message);
-		
+		Mensaje mensaje=Utilidades.convertirJsonAMensaje(message);		
 		//retransmitimos el mensaje a todas las sesiones
 		List<Session> sesiones=SingletonSesiones.getInstance().recuperarSesiones();
 		mensaje.setConectados(sesiones.size());
 		//convertimos el mensaje a JSON para enviarlo
 		String textoJson=Utilidades.convertirMensajeAJson(mensaje);
 		sesiones.forEach(s->{
-			try {
-				
+			try {			
 				s.getBasicRemote().sendText(textoJson);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

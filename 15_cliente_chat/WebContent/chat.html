@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="websocket.css">
+<script src="websocket.js">
+
+</script>
+<title>CHAT</title>
+</head>
+<body>
+<div align="center">
+<h1>Programa de Chat</h1>
+<h4>version BETA</h4>
+</div>
+<section id="cajaFormulario">
+<p id="conectados" align="right"></p>
+	<form name="formulario">
+		<label for="usuario">
+		Nombre de Usuario:
+		</label><br/>
+		<input type="text" name="usuario" id="usuario"><br/>
+		<button type="button" id="boton" onclick="conectar();">Conectar</button>
+		<button type="button" id="boton" onclick="desconectar();">Desconectar</button>
+		<br/><br/>
+
+		<label for="mensaje">
+		Mensaje:
+		</label><br/>
+		<input type="text" name="mensaje" id="mensaje"><br/>
+		<button type="button" id="boton" onclick="enviar();">Enviar</button>
+		
+	
+	</form>
+</section>
+<section id="cajadatos">
+
+</section>
+</body>
+</html>

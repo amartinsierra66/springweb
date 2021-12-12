@@ -20,6 +20,7 @@ public class ServidorChat {
 		SingletonSesiones singleton=SingletonSesiones.getInstance();
 		singleton.agregarSesion(sesion);
 		
+		
 	}
 	@OnClose
 	public void close(Session sesion) {
@@ -28,7 +29,7 @@ public class ServidorChat {
 	}
 	
 	@OnMessage
-	public void recepcion(String message) {
+	public void recepcion(String message,Session sesion) {
 		Mensaje mensaje=Utilidades.convertirJsonAMensaje(message);		
 		//retransmitimos el mensaje a todas las sesiones
 		List<Session> sesiones=SingletonSesiones.getInstance().recuperarSesiones();

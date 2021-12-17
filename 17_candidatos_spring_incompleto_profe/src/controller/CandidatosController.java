@@ -28,7 +28,7 @@ public class CandidatosController {
 	@GetMapping(value="recuperar")
 	public String recuperarCandidatos(HttpServletRequest request) {
 		List<Candidato> candidatos=service.recuperarCandidatos();
-		
+		request.setAttribute("candidatos", candidatos);
 		return "candidatos";
 	}
 	@GetMapping(value="eliminar")

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import dao.CandidatosDao;
 import model.Candidato;
 
-
+@Service
 public class CandidatosServiceImpl implements CandidatosService {
 	@Autowired
 	CandidatosDao repository;

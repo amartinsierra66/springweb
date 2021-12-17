@@ -12,11 +12,14 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	<!-- habilita en uso de anotaciones de configuración -->
 	<context:annotation-config/>
-	<context:component-scan base-package="service"/>
+	<context:component-scan base-package="service,dao"/>
 	
 	
 	
 	<jee:jndi-lookup jndi-name="refempresa" id="dataserver"/>
 	
+	<bean class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataserver"></property>
 	
+	</bean>
 </beans>

@@ -13,8 +13,16 @@ public class CandidatosDaoImpl implements CandidatosDao {
 	JdbcTemplate template;
 	@Override
 	public Candidato findByEmail(String email) {
-		//////
-		return null;
+		String sql="select * from candidatos where email=?";
+		List<Candidato> candidatos= template.query(sql, 
+				(rs,fila)->new Candidato(rs.getInt("idCandidato"), 
+						rs.getString("nombre"), 
+						rs.getInt("edad"), 
+						rs.getString("puesto"), 
+						rs.getString("email")),
+					email
+				);
+		return candidatos.size()>0?candidatos.get(0):null;
 	}
 
 	@Override
@@ -25,14 +33,19 @@ public class CandidatosDaoImpl implements CandidatosDao {
 						rs.getString("nombre"), 
 						rs.getInt("edad"), 
 						rs.getString("puesto"), 
-						rs.getString("email"))
+						rs.getString("email")),
+					idCandidato
 				);
 		return candidatos.size()>0?candidatos.get(0):null;
 	}
 
 	@Override
 	public void save(Candidato candidato) {
-		/////
+		String sql="insert into candidatos(nombre,edad,puesto,email) values(?,?,?,?)";
+		template.update(sql,candidato.getNombre(),
+				candidato.getEdad(),
+				candidato.getPuesto(),
+				candidato.getEmail());
 
 	}
 
@@ -52,7 +65,6 @@ public class CandidatosDaoImpl implements CandidatosDao {
 	public void deleteById(int idCandidato) {
 		String sql="delete from candidatos where idCandidato=?";
 		template.update(sql,idCandidato);
-
 	}
 
 }
